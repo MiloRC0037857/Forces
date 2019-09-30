@@ -62,7 +62,15 @@ namespace Forces
                 force = 0.0;
             }
 
-            angle = double.Parse(textBox2.Text);
+            try
+            {
+                angle = double.Parse(textBox2.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Not a correct value.");
+                angle = 0.0;
+            }
             //this line reads textbox 2 and gets value for angle
 
             double Fx = force * cos(angle);
