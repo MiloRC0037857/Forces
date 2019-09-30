@@ -50,8 +50,20 @@ namespace Forces
 
         private void CalculateButton_Click(object sender, EventArgs e)
         {
-            double force = double.Parse(textBox1.Text);
-            double angle = double.Parse(textBox2.Text);
+            double force, angle;
+
+            try
+            {
+                force = double.Parse(textBox1.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Not a correct value.");
+                force = 0.0;
+            }
+
+            angle = double.Parse(textBox2.Text);
+            //this line reads textbox 2 and gets value for angle
 
             double Fx = force * cos(angle);
             double Fy = force * sin(angle);
